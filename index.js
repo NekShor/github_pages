@@ -24,4 +24,4 @@ function addition(nombres) {
     return nb
 }
 
-module.exports = addition
+// module.exports = addition
