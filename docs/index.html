@@ -1,14 +1,14 @@
 <body onload="summation()">
     <div type="text" id="a" > 5</div>
-    <div type="text" id="b" > 6523</div>
-    <div id="c"></div>
+    <div type="text" id="b" > 3</div>
+    <div id="c">8</div>
 
     <br><br><br>
 
 
     <input type="text" id="a2" value="5" onchange="summationDirect()">
-    <input type="text" id="b2" value="6523" onchange="summationDirect()">
-    <div id="c2"></div>
+    <input type="text" id="b2" value="1" onchange="summationDirect()">
+    <input type="text" id="c2" value="1" onchange="summationDirect()">
     
     <script type="text/javascript" src="../index.js"></script>
     <script>
@@ -17,7 +17,15 @@
             var b = document.getElementById('b').innerText;
             var c = document.getElementById('c');
 
+            var valeurtest = c.innerHTML;
+
             c.innerHTML = addition([a, b]);
+
+            if(valeurtest === c.innerHTML) {
+                c.style.background = "green";
+            } else {
+                c.style.background = "red";
+            }
         }
 
         function summationDirect() {
@@ -25,7 +33,13 @@
             var b = document.getElementById('b2').value;
             var c = document.getElementById('c2');
 
-            c.innerHTML = addition([a, b]);
+            var valideValue = addition([a, b]);
+
+            if(valideValue.toString() === c.value.toString()) {
+                c.style.background = "green";
+            } else {
+                c.style.background = "red";
+            }
         }
     </script>
 </body>
