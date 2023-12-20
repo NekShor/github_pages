@@ -1,8 +1,17 @@
 <body onload="summation()">
-    <div type="text" id="a" > 5</div>
-    <div type="text" id="b" > 3</div>
-    <div id="c">8</div>
-
+    <div class="test">
+        <span type="text" id="a" > 5</span> + <span type="text" id="b" > 3</span> = <span id="c">8</span><br>
+    </div>
+    <div class="test">
+        <span type="text" id="a" > 5</span> + <span type="text" id="b" > 3</span> = <span id="c">6</span><br>
+    </div>
+    <div class="test">
+        <span type="text" id="a" > 1</span> + <span type="text" id="b" > 3</span> = <span id="c">6</span><br>
+    </div>
+    <div class="test">
+        <span type="text" id="a" > 1</span> + <span type="text" id="b" > 11</span> = <span id="c">12</span><br>
+    </div>
+    
     <br><br><br>
 
 
@@ -13,19 +22,26 @@
     <script type="text/javascript" src="../index.js"></script>
     <script>
         function summation() {
-            var a = document.getElementById('a').innerText;
-            var b = document.getElementById('b').innerText;
-            var c = document.getElementById('c');
+            var allTest = document.getElementsByClassName('test');
 
-            var valeurtest = c.innerHTML;
-
-            c.innerHTML = addition([a, b]);
-
-            if(valeurtest === c.innerHTML) {
-                c.style.background = "green";
-            } else {
-                c.style.background = "red";
+            for(var i = 0; i < allTest.length; i++) {
+                var t = allTest[i];
+                
+                var a = t.querySelector('#a').innerText;
+                var b = t.querySelector('#b').innerText;
+                var c = t.querySelector('#c');
+    
+                var valeurtest = c.innerHTML;
+    
+                result = addition([a, b]);
+    
+                if(valeurtest.toString() === result.toString()) {
+                    c.style.background = "green";
+                } else {
+                    c.style.background = "red";
+                }
             }
+
         }
 
         function summationDirect() {
